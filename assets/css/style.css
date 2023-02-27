@@ -1,0 +1,24 @@
+/* maintient le footer en bas de page */
+.wrapper {
+    min-height: 100vh;
+    background:transparent;
+    margin-bottom: -50px;/* Equal to height of footer */
+} /* grace au push*/
+.footer,
+.push {
+    height: 50px;
+}
+
+.hover:hover {
+    transition: all 0.3s ease-in-out;
+    opacity: 0.8;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #f1f1f1;
+}
+
+main {
+    margin-top: 4rem;
+}
