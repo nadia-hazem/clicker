@@ -16,21 +16,23 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-        
+    
     <!-- CSS -->
     <link rel="stylesheet" href="/clicker/assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>    
     
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="/clicker/assets/img/favicon.png"/>    
-
+    
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    
     <!-- JS -->
-    <script src="/clicker/assets/js/script.js"></script>
-    <script src="/clicker/assets/js/menu.js"></script>
+    <script src="/clicker/assets/js/menu.js" defer></script>
     
 </head>
 
-<body>
+<body id="index">
 
     <?php include 'includes/header.php'; ?>
 

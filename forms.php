@@ -1,11 +1,9 @@
 <?php
-    session_start();
 
     require_once 'assets/lib/DbConnect.php';
     require_once 'assets/lib/User.php';
     $db = new DbConnect();
     $user = new User($db);
-
 ?>
 
 <!--  Path: forms.php -->
@@ -15,7 +13,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clicker</title>
+    <title></title>
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
@@ -26,7 +24,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-        
+
     <!-- CSS -->
     <link rel="stylesheet" href="/clicker/assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>    
@@ -34,9 +32,12 @@
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="/clicker/assets/img/favicon.png"/>    
 
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
     <!-- JS -->
     <script src="/clicker/assets/js/script.js"></script>
-    <script src="/clicker/assets/js/menu.js"></script>
+    <script src="/clicker/assets/js/menu_user.js"></script>
     
 </head>
 
@@ -67,7 +68,7 @@
                         <input type="submit" id="loginSubmit" class="btn btn-secondary" value="Connexion">
                         <p class="error"></p>
 
-                        Vous n'avez pas de compte ? &nbsp;<a href id="switchReg">Inscription</a>
+                        Vous n'avez pas de compte ? &nbsp;<a href="#" id="switchReg">Inscription</a>
                     </form> <!-- fin du formulaire -->
                     
                 </div>
@@ -93,7 +94,7 @@
                         <input type="submit" id="registerSubmit" class="btn btn-secondary" value="Inscription">
                         <p class="error"></p>
 
-                        Déjà inscrit ? &nbsp;<a href id="switchLog">Connexion</a>
+                        Déjà inscrit ? &nbsp;<a href="#" id="switchLog">Connexion</a>
 
                     </form> <!-- fin du formulaire -->
 

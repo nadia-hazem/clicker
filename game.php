@@ -1,4 +1,4 @@
-<!--  Path: index.php -->
+<!--  Path: game.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,21 +16,24 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-        
+    
     <!-- CSS -->
-    <link rel="stylesheet" href="/click/assets/css/style.css">
+    <link rel="stylesheet" href="/clicker/assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>    
     
     <!-- favicon -->
     <link rel="shortcut icon" type="image/png" href="/clicker/assets/img/favicon.png"/>    
-
+    
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+    
     <!-- JS -->
-
-    <script src="/click/assets/js/menu.js"></script>
+    <script src="/clicker/assets/js/game.js"></script>
+    <script src="/clicker/assets/js/menu.js"></script>
     
 </head>
 
-<body>
+<body id="jeu">
 
     <?php include 'includes/header.php'; ?>
 
@@ -40,8 +43,51 @@
 
             <div class="container">
                 
-                <form 
-            
+                <!-- <div>
+                    <p id="clicksDisplay" class="score"></p>
+                    <button id="clickBtn">Cliquez ici pour ajouter un point</button>
+                </div> -->
+                <div>
+                    <p id="compteur">0</p>
+                </div>
+                <div>
+                    <button id="btnClick">Incrémenter</button>
+                </div>
+
+
+                <section id="shop">
+                    <h3>Acheter des packs de clics :</h3>
+                    
+                    <div class="shopItem col card form-group m-2 p-3" data-pack="1">
+                        <p class="small-pack">Petit Pack</p>
+                        <div class="clicks-per-pack">gain : <span class="gain">2</span></div>
+                        <div class="pack-cost">Coût : <span class="cost">10</span> points</div>
+                        <button class="buy btn btn-success">Acheter</button>                        
+                    </div>
+                    
+                    <div class="shopItem col card form-group m-2 p-3" data-pack="2">
+                        <p class="medium-pack">Moyen Pack</p>
+                        <div class="clicks-per-pack">gain : <span class="gain">5</span></div>
+                        <div class="pack-cost">Coût : <span class="cost">50</span> points</div>
+                        <button class="buy btn btn-success">Acheter</button>
+                    </div>
+                    
+                    <div class="shopItem col card form-group m-2 p-3" data-pack="3">
+                        <p class="large-pack">Grand Pack</p>
+                        <div class="clicks-per-pack">gain: <span class="gain">10</span></div>
+                        <div class="pack-cost">Coût : <span class="cost">100</span>points</div>
+                        <button class="buy btn btn-success">Acheter</button>
+                    </div>
+                    
+                    <div class="shopItem col card form-group m-2 p-3 " data-pack="4">
+                        <p class="mega-pack">Mega Pack</p>
+                        <div class="clicks-per-pack">gain : <span class="gain">50</span></div>
+                        <div class="pack-cost">Coût : <span class="cost">300</span> points</div>
+                        <button class="buy btn btn-success">Acheter</button>
+                    </div>
+
+                </section>
+
             </div> <!-- /container -->
 
         </main> <!-- /main -->

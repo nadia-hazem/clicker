@@ -12,6 +12,12 @@ class User
     public function __construct(DbConnect $db)
     {
         $this->bdd = $db->getBdd();
+
+        if (isset($_SESSION['user'])) {
+            $this->id = $_SESSION['user']['id'];
+            $this->login = $_SESSION['user']['login'];
+            $this->password = $_SESSION['user']['password'];
+        }
     }
 
 

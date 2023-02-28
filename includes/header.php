@@ -1,10 +1,11 @@
 <?php 
-
+session_start();
+?>
+<?php 
 require_once 'assets/lib/DbConnect.php'; 
 require_once 'assets/lib/User.php';
 $db = new DbConnect();
 $user = new User($db);
-
 ?>
 
 <!-- header -->
@@ -25,32 +26,28 @@ $user = new User($db);
             }
         }
         else if ($user->isConnected()) {
-            
-            ?>
-
+        ?>
             <!-- afficher les liens menus correspondants à la session -->
             <ul class="nav nav-pills nav-fill">
 
                 <!-- afficher le login de l'utilisateur -->
                 <li class="nav-item pt-2"><mark><?php $login = $user->getLogin(); ?></mark></li>
 
-                <li id="accueil" class="nav-item"><a class="nav-link text-dark bg-secondary" href="index.php">ACCUEIL</a></li>
+                <li id="accueil" class="nav-item"><a class="nav-link text-dark" href="index.php">ACCUEIL</a></li>
 
-                <li id="profil" class="nav-item"><a class="nav-link text-dark bg-secondary" href="profil.php"></i>PROFIL</a></li> 
+                <li id="profil" class="nav-item"><a class="nav-link text-dark" href="profil.php">PROFIL</a></li> 
 
-                <li id="game" class="nav-item"><a class="nav-link text-dark bg-secondary" href="game.php">JOUER</a></li>
+                <li id="game" class="nav-item"><a class="nav-link text-dark" href="game.php">JOUER</a></li>
 
-                <li id="deconnexion" class="nav-item"><a class="nav-link text-dark bg-secondary" href="index.php?deconnexion=true">DECONNEXION</a></li>
+                <li id="deconnexion" class="nav-item"><a class="nav-link text-dark" href="index.php?deconnexion=true">DECONNEXION</a></li>
 
-                <li id="contact" class="nav-item"><a class="nav-link text-dark bg-secondary" href="mailto:nadia.hazem@laplateforme.io">CONTACT</a></li>
+                <li id="contact" class="nav-item"><a class="nav-link text-dark" href="mailto:nadia.hazem@laplateforme.io">CONTACT</a></li>
             </ul>
         
 
             <?php
         } else { 
-
             ?>
-
             <!-- afficher les liens menus correspondants à l'absence de session -->
             <ul class="nav nav-pills nav-fill">
 
@@ -62,10 +59,8 @@ $user = new User($db);
 
                 <li id="contact" class="nav-item"><a class="nav-link text-dark" href="mailto:nadia.hazem@laplateforme.io">CONTACT</a></li>
             </ul>
-
-            <?php
+        <?php
         }
-
         ?>
 
     </nav>

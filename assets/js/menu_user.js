@@ -5,24 +5,25 @@ function burgerSwitch(nav) {
     } else {
         nav.className = "open";
     }
-    
+
 }
 
 // Chargement du DOM
-
 document.addEventListener("DOMContentLoaded", function () {
-    
+
     let title = document.title;
+    let switchLog = document.querySelector("#switchLog");
+    let switchReg = document.querySelector("#switchReg");
+
     // Fonction pour highlighter l'onglet actif
     function onglet() {
         if (title == "Accueil") {
             let li = document.querySelector("#accueil");
             li.style.backgroundColor = "#ccc";
-        } else if (title == "Game") {
-            let li = document.querySelector("#game");
+        } else if (title == "Livre d'or") {
+            let li = document.querySelector("#livre");
             li.style.backgroundColor = "#ccc";
         } else if (title == "Profil") {
-            console.log(title);
             let li = document.querySelector("#profil");
             li.style.backgroundColor = "#ccc";
         } else if (title == "Connexion") {
@@ -34,5 +35,21 @@ document.addEventListener("DOMContentLoaded", function () {
         } 
     }
     onglet();
+    
+    // boutons de switch secondaires
+    switchLog.addEventListener("click", function () {
+        title = "Connexion";
+        let li = document.querySelector("#inscription");
+            li.style.backgroundColor = "initial";
+        onglet();
+    });
+    
+    switchReg.addEventListener("click", function () {
+        title = "Inscription";
+        let li = document.querySelector("#connexion");
+            li.style.backgroundColor = "initial";
+
+        onglet();
+    });
 
 });

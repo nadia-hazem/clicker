@@ -1,11 +1,4 @@
-<?php
-    require_once 'assets/lib/DbConnect.php';
-    require_once 'assets/lib/User.php';
-    $db = new DbConnect();
-    $user = new User($db);
 
-    session_start();
-?>
 
 <!-- path: profil.php -->
 <!DOCTYPE html>
@@ -36,19 +29,20 @@
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
-    <script src="/clicker/assets/js/script.js"></script>
-    <script src="/clicker/assets/js/menu.js"></script>
+    <!-- <script src="/clicker/assets/js/script.js"></script> -->
+    <script src="/clicker/assets/js/menu.js" defer></script>
     
 </head>
 
-<body id="profil">
+<body id="bodyProfil">
 
     <?php include 'includes/header.php';?>
 
     <?php
-    /* if (!$user->isConnected()) { // si la session n'est pas ouverte (protection de barre d'adresse)
-        header('Location: forms.php#connexion'); // redirection vers la page de connexion
-    } */
+    if (!$user->isConnected()) { // si la session n'est pas ouverte (protection de barre d'adresse)
+        header('Location: forms.php?choice=login'); // redirection vers la page de connexion
+
+    }
 
     // variables des informations de l'utilisateur
     $login = $_SESSION['user']['login']; 

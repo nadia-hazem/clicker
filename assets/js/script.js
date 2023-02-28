@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(response => response.text())
             .then((data) => {
                 data = data.trim();
-                
+
                 console.log(dataLogin);
                 console.log(data);
 
@@ -209,6 +209,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => console.log(error));
         }
     });
+
     // switchreg
     switchReg.addEventListener("click", (e) => {
         e.preventDefault();
@@ -230,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
             // Récupérer les infos du formulaire de connexion
             let data = new FormData(loginForm);
             data.append("connect", "envoi");
-            fetch("/clicker/assets/php/verification.php", {
+            fetch("assets/php/verification.php", {
                 method: "POST",
                 body: data
             })
