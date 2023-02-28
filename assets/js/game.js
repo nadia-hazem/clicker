@@ -55,8 +55,8 @@ document.addEventListener("DOMContentLoaded", function () {
                 });
 
                 // Mettre à jour l'affichage de l'article acheté
-                item.querySelector(".gain").textContent = gain * 2;
-                item.querySelector(".cost").textContent = cost + 10;
+                item.querySelector(".gain").textContent = gain * 1.5(toFixed(1));
+                item.querySelector(".cost").textContent = cost * 1.5(toFixed(1));
             } else {
                 alert("Vous n'avez pas assez de points pour acheter cet article.");
             }

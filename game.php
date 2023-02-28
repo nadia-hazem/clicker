@@ -42,46 +42,51 @@
         <main>
 
             <div class="container">
-                
-                <!-- <div>
-                    <p id="clicksDisplay" class="score"></p>
-                    <button id="clickBtn">Cliquez ici pour ajouter un point</button>
-                </div> -->
-                <div>
-                    <p id="compteur">0</p>
+
+                <div class="row text-center mx-auto my-5">
+                    <div class="col-md-6">
+                        <h4>Points</h4>
+                        <span id="compteur">0</span>
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Clicks/sec</h4>
+                        <span id="cps">0</span>
+                    </div>
                 </div>
-                <div>
-                    <button id="btnClick">Incrémenter</button>
+
+                <div class="row justify-content-start my-5">
+                    <button id="btnClick" class="btn btn-secondary w-auto mx-auto">Click</button>
+                    <button id="autoClickBtn" class="btn btn-secondary w-auto mx-auto">Auto Click</button>
                 </div>
 
 
-                <section id="shop">
+                <section id="shop" class="row">
                     <h3>Acheter des packs de clics :</h3>
                     
                     <div class="shopItem col card form-group m-2 p-3" data-pack="1">
                         <p class="small-pack">Petit Pack</p>
-                        <div class="clicks-per-pack">gain : <span class="gain">2</span></div>
+                        <div class="clicks-per-pack">gain : <span class="gain">1.5</span> clic/sec.</div>
                         <div class="pack-cost">Coût : <span class="cost">10</span> points</div>
                         <button class="buy btn btn-success">Acheter</button>                        
                     </div>
                     
                     <div class="shopItem col card form-group m-2 p-3" data-pack="2">
                         <p class="medium-pack">Moyen Pack</p>
-                        <div class="clicks-per-pack">gain : <span class="gain">5</span></div>
+                        <div class="clicks-per-pack">gain : <span class="gain">2</span> clics/sec.</div>
                         <div class="pack-cost">Coût : <span class="cost">50</span> points</div>
                         <button class="buy btn btn-success">Acheter</button>
                     </div>
                     
                     <div class="shopItem col card form-group m-2 p-3" data-pack="3">
                         <p class="large-pack">Grand Pack</p>
-                        <div class="clicks-per-pack">gain: <span class="gain">10</span></div>
+                        <div class="clicks-per-pack">gain: <span class="gain">2.5</span> clics/sec.</div>
                         <div class="pack-cost">Coût : <span class="cost">100</span>points</div>
                         <button class="buy btn btn-success">Acheter</button>
                     </div>
                     
                     <div class="shopItem col card form-group m-2 p-3 " data-pack="4">
                         <p class="mega-pack">Mega Pack</p>
-                        <div class="clicks-per-pack">gain : <span class="gain">50</span></div>
+                        <div class="clicks-per-pack">gain : <span class="gain">3</span> clics/sec.</div>
                         <div class="pack-cost">Coût : <span class="cost">300</span> points</div>
                         <button class="buy btn btn-success">Acheter</button>
                     </div>
