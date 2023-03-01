@@ -1,73 +1,142 @@
 // Chargement du DOM
 document.addEventListener("DOMContentLoaded", function () {
 
-    const shop = document.getElementById("shop");
-    let compteur = document.getElementById("compteur");
+    /* console.clear() */
 
-    // Initialiser le compteur à 0
-    let points = 0;
-    compteur.innerHTML = points;
+    let money = 0,
+    clickUpCost = 10,
+    clickLevel = 1,
+    autoUpCost = 25,
+    autoLevel = 0,
+    multUpCost = 50,
+    multiplierLevel = 1,
+    moneyBtn = document.getElementById("moneyButton"),
+    moneyDisp = document.getElementById("moneyDisplay"),
+    clickStats = document.getElementById("clickUpgradeStats"),
+    clickUpgrade = document.getElementById("upgrdClick"),
+    autoStats = document.getElementById("autoUpgradeStats"),
+    autoUpgrade = document.getElementById("upgrdAuto"),
+    moneyPerSecond = document.getElementById("moneyPerSec"),
+    autoMultUpgrade = document.getElementById("upgrdAutoAmt"),
+    autoMultStats = document.getElementById("autoAmountUpgradeStats");
 
-    // Récupérer les points depuis le localStorage s'ils existent
-    if (localStorage.getItem("points")) {
-        points = parseInt(localStorage.getItem("points"));
-        compteur.innerHTML = points;
+    let levelRow = document.getElementById("levelRow");
+    let level1Img = document.getElementById("level1");
+    let level2Img = document.getElementById("level2");
+    let level3Img = document.getElementById("level3");
+    let level4Img = document.getElementById("level4");
+    
+    // maj du gain par seconde
+    let mps = setInterval(function() {
+        money = money + (autoLevel * multiplierLevel)
+        moneyDisp.innerHTML = money + "€";
+        updateLevelRow();
+        localStorage.setItem("money", money);
+        }, 1000);
+        console.log(mps);
+
+    // maj du gain par clic
+    moneyBtn.onclick = function() {
+        money = money + (clickLevel * 1); // Montant de base du click : 1€
+        moneyDisp.innerHTML = money + "€";
+        updateLevelRow();
     }
+    
+    // click 
+    clickUpgrade.onclick = function() {
+        if (money >= clickUpCost) {
+        clickLevel++;
+        money = money - clickUpCost;
+        clickUpCost = Math.ceil(clickUpCost / 5) + clickUpCost;
+        moneyDisp.innerHTML = money + "€";
+        updateLevelRow();
+        clickStats.innerHTML = "Coût: " + clickUpCost + "€ <br> Niveau: " + clickLevel;
 
-    function incrementPoints(amount) {
-        // Incrémente le compteur et les points
-        points += amount;
-        compteur.innerHTML = points;
+        clickStats.innerHTML = "Coût: " + clickUpCost + "€ <br> Niveau: " + clickLevel + "<br> Gain: " + (clickLevel * 1) + "€ par clic"; // Montant gagné du click, en fonction du niveau
 
-        // Mettre à jour les points dans le localStorage
-        localStorage.setItem("points", points);
-    }
 
-    function handleButtonClick() {
-        // Incrémente les points de 1
-        incrementPoints(1);
-        
-        // Mettre à jour l'état du bouton
-        button.classList.toggle("active");
-    }
-
-    function handleBuyButtonClick(e) {
-        if (e.target.classList.contains("buy")) {
-            let item = e.target.parentElement;
-            let gain = parseInt(item.querySelector(".gain").textContent);
-            let cost = parseInt(item.querySelector(".cost").textContent);
-
-            // Vérifier si l'utilisateur a suffisamment de points pour acheter l'article
-            if (points >= cost) {
-                // Soustraire le coût des points de l'utilisateur
-                incrementPoints(-cost);
-
-                // Ajouter le gain à l'incrément par clic
-                incrementPoints(gain);
-
-                // Mettre à jour l'affichage de tous les articles de la boutique
-                let items = document.querySelectorAll(".shopItem");
-                items.forEach(function (item) {
-                    let currentGain = parseInt(item.querySelector(".gain").textContent);
-                    let currentCost = parseInt(item.querySelector(".cost").textContent);
-                    item.querySelector(".gain").textContent = currentGain + gain;
-                    item.querySelector(".cost").textContent = currentCost + 1;
-                });
-
-                // Mettre à jour l'affichage de l'article acheté
-                item.querySelector(".gain").textContent = gain * 1.5(toFixed(1));
-                item.querySelector(".cost").textContent = cost * 1.5(toFixed(1));
-            } else {
-                alert("Vous n'avez pas assez de points pour acheter cet article.");
-            }
+        localStorage.setItem("money", money);
+        localStorage.setItem("clickLevel", clickLevel);
+        localStorage.setItem("clickUpCost", clickUpCost);
         }
     }
+    
+    autoUpgrade.onclick = function() {
+        if (money >= autoUpCost) {
+        autoLevel++;
+        money = money - autoUpCost;
+        autoUpCost = Math.ceil(autoUpCost / 5) + autoUpCost;
+        moneyDisp.innerHTML = money + "€";
+        updateLevelRow();
+        autoStats.innerHTML = "Coût: " + autoUpCost + "€ <br> Niveau: " + autoLevel;
+        moneyPerSecond.innerHTML = "Tu gagnes " + (autoLevel * multiplierLevel) + " € par seconde";
+        }
+        localStorage.setItem("money", money);
+        localStorage.setItem("autoLevel", autoLevel);
+        localStorage.setItem("autoUpCost", autoUpCost);
+    }
 
-    // Récupérer les éléments du DOM par leur ID
-    let button = document.getElementById("btnClick");
-    // Ajouter un écouteur d'événement au clic sur le bouton
-    button.addEventListener("click", handleButtonClick);
+    autoMultUpgrade.onclick = function() {
+        if (money >= multUpCost) {
+        multiplierLevel++;
+        money = money - multUpCost;
+        multUpCost = Math.ceil(multUpCost / 2) + multUpCost;
+        moneyDisp.innerHTML = money + "€";
+        updateLevelRow();
+        autoMultStats.innerHTML = "Coût: " + multUpCost + "€ <br> Multiplieur: x" + multiplierLevel;
+        moneyPerSecond.innerHTML = "Tu gagnes " + (autoLevel * multiplierLevel) + " € par seconde";
+        }
+        localStorage.setItem("money", money);
+        localStorage.setItem("multiplierLevel", multiplierLevel);
+        localStorage.setItem("multUpCost", multUpCost);
+    }
 
-    // Ajouter un écouteur d'événement à la boutique
-    shop.addEventListener("click", handleBuyButtonClick);
+    function updateLevelRow() {
+        if (money >= 100) {
+            level1Img.src = "level1-complete.png";
+        }
+        if (money >= 500) {
+            level2Img.src = "level2-complete.png";
+        }
+        if (money >= 1000) {
+            level3Img.src = "level3-complete.png";
+        }
+        if (money >= 5000) {
+            level4Img.src = "level4-complete.png";
+        }
+    }
+    
+    // Fonction pour récupérer les données du localStorage
+    function getLocalStorage() {
+        if (localStorage.getItem("money")) {
+            money = parseInt(localStorage.getItem("money"));
+            moneyDisp.innerHTML = money + "€";
+        }
+        if (localStorage.getItem("clickUpCost")) {
+            clickUpCost = parseInt(localStorage.getItem("clickUpCost"));
+            clickStats.innerHTML = "Coût: " + clickUpCost + "€ <br> Niveau: " + clickLevel;
+        }
+        if (localStorage.getItem("clickLevel")) {
+            clickLevel = parseInt(localStorage.getItem("clickLevel"));
+            clickStats.innerHTML = "Coût: " + clickUpCost + "€ <br> Niveau: " + clickLevel;
+        }
+        if (localStorage.getItem("autoUpCost")) {
+            autoUpCost = parseInt(localStorage.getItem("autoUpCost"));
+            autoStats.innerHTML = "Coût: " + autoUpCost + "€ <br> Niveau: " + autoLevel;
+        }
+        if (localStorage.getItem("autoLevel")) {
+            autoLevel = parseInt(localStorage.getItem("autoLevel"));
+            autoStats.innerHTML = "Coût: " + autoUpCost + "€ <br> Niveau: " + autoLevel;
+        }
+        if (localStorage.getItem("multUpCost")) {
+            multUpCost = parseInt(localStorage.getItem("multUpCost"));
+            autoMultStats.innerHTML = "Coût: " + multUpCost + "€ <br> Multiplieur: x" + multiplierLevel;
+        }
+        if (localStorage.getItem("multiplierLevel")) {
+            multiplierLevel = parseInt(localStorage.getItem("multiplierLevel"));
+            autoMultStats.innerHTML = "Coût: " + multUpCost + "€ <br> Multiplieur: x" + multiplierLevel;
+        }
+    }
+    getLocalStorage();
+    
 });

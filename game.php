@@ -42,62 +42,41 @@
         <main>
 
             <div class="container">
-
-                <div class="row text-center mx-auto my-5">
-                    <div class="col-md-6">
-                        <h4>Points</h4>
-                        <span id="compteur">0</span>
-                    </div>
-                    <div class="col-md-6">
-                        <h4>Clicks/sec</h4>
-                        <span id="cps">0</span>
-                    </div>
+                
+                <div id="levelRow" class="row mx-auto p-5 bg-secondary">
+                    <img src="level1.png" id="level1"><!--or-->
+                    <img src="level2.png" id="level2"><!--argent-->
+                    <img src="level3.png" id="level3"><!--zinc-->
+                    <img src="level4.png" id="level4"><!--cuivre-->
                 </div>
 
-                <div class="row justify-content-start my-5">
-                    <button id="btnClick" class="btn btn-secondary w-auto mx-auto">Click</button>
-                    <button id="autoClickBtn" class="btn btn-secondary w-auto mx-auto">Auto Click</button>
+                <div class="money card">
+                    <input id="moneyButton" type="button" value="Click" class="moneyButton">
+                    <p id="moneyDisplay" class="display">0€</p>
+                    <p id="moneyPerSec" class="mps"></p>
                 </div>
 
-
-                <section id="shop" class="row">
-                    <h3>Acheter des packs de clics :</h3>
-                    
-                    <div class="shopItem col card form-group m-2 p-3" data-pack="1">
-                        <p class="small-pack">Petit Pack</p>
-                        <div class="clicks-per-pack">gain : <span class="gain">1.5</span> clic/sec.</div>
-                        <div class="pack-cost">Coût : <span class="cost">10</span> points</div>
-                        <button class="buy btn btn-success">Acheter</button>                        
+                <div class="upgrades">
+                    <div class="click">
+                        <input id="upgrdClick" type="button" value="Upgrade Click" class="clickUpgrade">
+                        <p class="stats-click" id="clickUpgradeStats">Coût: 10€ <br> Niveau: 1</p>
                     </div>
-                    
-                    <div class="shopItem col card form-group m-2 p-3" data-pack="2">
-                        <p class="medium-pack">Moyen Pack</p>
-                        <div class="clicks-per-pack">gain : <span class="gain">2</span> clics/sec.</div>
-                        <div class="pack-cost">Coût : <span class="cost">50</span> points</div>
-                        <button class="buy btn btn-success">Acheter</button>
+                    <br>
+                    <div class="auto">
+                        <input id="upgrdAuto" type="button" value="Auto Click" class="autoUpgrade">
+                        <p class="stats-auto" id="autoUpgradeStats">Coût: 25€ <br> Niveau: 0</p>
                     </div>
-                    
-                    <div class="shopItem col card form-group m-2 p-3" data-pack="3">
-                        <p class="large-pack">Grand Pack</p>
-                        <div class="clicks-per-pack">gain: <span class="gain">2.5</span> clics/sec.</div>
-                        <div class="pack-cost">Coût : <span class="cost">100</span>points</div>
-                        <button class="buy btn btn-success">Acheter</button>
+                    <br>
+                    <div class="autoAmount">
+                        <input id="upgrdAutoAmt" type="button" value="Multiplieur Click" class="autoUpgradeAmount">
+                        <p class="stats-auto-amount" id="autoAmountUpgradeStats">Coût: 50€ <br> Multiplieur: x1</p>
                     </div>
-                    
-                    <div class="shopItem col card form-group m-2 p-3 " data-pack="4">
-                        <p class="mega-pack">Mega Pack</p>
-                        <div class="clicks-per-pack">gain : <span class="gain">3</span> clics/sec.</div>
-                        <div class="pack-cost">Coût : <span class="cost">300</span> points</div>
-                        <button class="buy btn btn-success">Acheter</button>
-                    </div>
-
-                </section>
-
-            </div> <!-- /container -->
+                </div>
+            </div>
 
         </main> <!-- /main -->
 
-    <div class="push"></div> <!--repousse le footer en bas de page-->
+        <div class="push"></div> <!--repousse le footer en bas de page-->
 
     </div> <!-- /wrapper -->
 
