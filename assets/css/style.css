@@ -9,6 +9,21 @@
     height: 50px;
 }
 
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+form {
+    margin: 0 auto;
+    width: 50%;
+}
+@media screen and (max-width: 768px) {
+    form {
+        width: 100%;
+    }
+}
+
 .hover:hover {
     transition: all 0.3s ease-in-out;
     opacity: 0.8;
@@ -16,17 +31,64 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: #f1f1f1;
+}
+body#index {
+    background-color: #000;
+    color: white;
+    background: url(../img/a.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+body#jeu {
+    background-color: #000;
+    color: white;
+    background: url(../img/b.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+body#profil {
+    background-color: #000;
+    color: white;
+    background: url(../img/c.jpg) no-repeat center center fixed;
+    background-size: cover;
+}
+body#forms {
+    background-color: #000;
+    color: white;
+    background: url(../img/c.jpg) no-repeat center center fixed;
+    background-size: cover;
 }
 
 main {
-    margin-top: 4rem;
+    margin-top: .5rem;
+}
+.container {
+    height: 100vh;
+}
+.bg-creme {
+    background-color: #EACC86;
 }
 
-/* .score {
-    width: 3rem;
-    height: 3rem;
-} */
+.text-creme {
+    color: #EACC86;
+}
+
+.btn-green {
+    background-color: #92AA0C;
+    color: #fff;
+}
+
+.money {
+    /* position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    min-height: 100px; */
+}
+.moneyButton{
+    /* width: 200px */
+}
+
+.mps{
+    text-align: center;
+}
 
 @media (max-width: 767px) {
     
@@ -75,19 +137,3 @@ main {
 
 }
 
-.money {
-position: absolute;
-    left: 50%;
-    margin-left: -50px;
-/*  width: 250px */
-}
-.moneyButton{
-    width: 250px
-}
-.display{
-    text-align: center;
-    font-size: 50px;
-}
-.mps{
-    text-align: center;
-}

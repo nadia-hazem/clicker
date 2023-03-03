@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php
 
     require_once 'assets/lib/DbConnect.php';
@@ -41,9 +42,7 @@
     
 </head>
 
-<body>
-
-    <?php include 'includes/header.php'; ?>
+<body id="forms">
 
     <div class="wrapper">
 
@@ -52,9 +51,11 @@
             <div class="container">
                 
                 <div id="connexionDiv" class="animate__animated animate__zoomIn">
-                    
+
+                    <button id="inscription" class="btn btn-warning"><a class="text-center" id="registerBtn" href="/clicker/forms.php?choice=register">INSCRIPTION</a></button>
+
                     <!-- login -->
-                    <form id="loginForm" class="bg-white bg-opacity-75" action="assets/php/verification.php" method="post"> <!-- redirection vers la page de vérification -->
+                    <form id="loginForm" class="bg-dark rounded p-5 m-5" action="assets/php/verification.php" method="post"> <!-- redirection vers la page de vérification -->
                     
                     <h3 class="playfair">Connectez-vous pour accéder à votre profil</h3>
                     <h1 class="text-center">Connexion</h1>
@@ -76,8 +77,10 @@
                 
                 <div id="inscriptionDiv" class="animate__animated animate__zoomIn">
                     
+                    <button id="inscription" class="btn btn-warning"><a class="text-center" id="loginBtn" href="/clicker/forms.php?choice=login">CONNEXION</a></button>
+                    
                     <!-- register -->
-                    <form id="registerForm"  class="bg-white bg-opacity-75" action="assets/php/verification.php">
+                    <form id="registerForm"  class="bg-dark rounded p-5 m-5" action="assets/php/verification.php">
                         
                         <h3 class="playfair">Inscrivez-vous pour laisser un commentaire</h3>
                         <h1 class="text-center">Inscription</h1>

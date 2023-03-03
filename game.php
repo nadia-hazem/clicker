@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!--  Path: game.php -->
 <!DOCTYPE html>
 <html lang="en">
@@ -26,53 +28,56 @@
     
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
-    
+
     <!-- JS -->
     <script src="/clicker/assets/js/game.js"></script>
-    <script src="/clicker/assets/js/menu.js"></script>
     
 </head>
 
 <body id="jeu">
 
-    <?php include 'includes/header.php'; ?>
-
     <div class="wrapper">
 
         <main>
 
-            <div class="container">
+            
+
+            <section class="container d-flex text-center justify-content-center align-items-center">
                 
-                <div id="levelRow" class="row mx-auto p-5 bg-secondary">
-                    <img src="level1.png" id="level1"><!--or-->
-                    <img src="level2.png" id="level2"><!--argent-->
-                    <img src="level3.png" id="level3"><!--zinc-->
-                    <img src="level4.png" id="level4"><!--cuivre-->
+                <div class="col-6">
+                    <div class="d-flex justify-content-start mx-5 my-0">
+                        <button id="deconnexion" class="btn btn-danger btn-lg mx-2"><a href="index.php?deconnexion=true">DECONNEXION</a></button>
+                        <button id="profil" class="btn btn-warning btn-lg mx-2"><a href="profil.php">PROFIL</a></button>
+                    </div>    
+
+                    <div class="money rounded m-5 bg-dark justify-content-center align-items-center">
+
+                        <h1 id="moneyDisplay" class="display text-white my-5">$0</h1>
+                        <input id="moneyButton" type="button" value="Click" class="moneyButton btn btn-danger btn-lg my-3">
+                        <p id="moneyPerSec" class="mps text-white"></p>
+                    </div> 
                 </div>
 
-                <div class="money card">
-                    <input id="moneyButton" type="button" value="Click" class="moneyButton">
-                    <p id="moneyDisplay" class="display">0€</p>
-                    <p id="moneyPerSec" class="mps"></p>
+                <div class="upgrades col-4 m-auto">
+                    <h2 class="text-dark">Améliorations</h2>
+                    
+                    <div class="click rounded bg-dark m-2 p-2">
+                        <input id="upgrdClick" type="button" value="Upgrade Click" class="clickUpgrade btn btn-warning my-2">
+                        <p class="stats-click" id="clickUpgradeStats">Coût : $10 <br> Niveau 1</p>
+                    </div>
+
+                    <div class="auto rounded bg-dark m-2 p-2">
+                        <input id="upgrdAuto" type="button" value="Auto Click" class="autoUpgrade btn btn-warning my-2">
+                        <p class="stats-auto" id="autoUpgradeStats">Coût : $25 <br> Niveau 0</p>
+                    </div>
+
+                    <div class="autoAmount rounded bg-dark m-2 p-2">
+                        <input id="upgrdAutoAmt" type="button" value="Multiplieur Click" class="autoUpgradeAmount btn btn-warning my-2">
+                        <p class="stats-auto-amount" id="autoAmountUpgradeStats">Coût : $50 <br> Multiplieur x1</p>
                 </div>
 
-                <div class="upgrades">
-                    <div class="click">
-                        <input id="upgrdClick" type="button" value="Upgrade Click" class="clickUpgrade">
-                        <p class="stats-click" id="clickUpgradeStats">Coût: 10€ <br> Niveau: 1</p>
-                    </div>
-                    <br>
-                    <div class="auto">
-                        <input id="upgrdAuto" type="button" value="Auto Click" class="autoUpgrade">
-                        <p class="stats-auto" id="autoUpgradeStats">Coût: 25€ <br> Niveau: 0</p>
-                    </div>
-                    <br>
-                    <div class="autoAmount">
-                        <input id="upgrdAutoAmt" type="button" value="Multiplieur Click" class="autoUpgradeAmount">
-                        <p class="stats-auto-amount" id="autoAmountUpgradeStats">Coût: 50€ <br> Multiplieur: x1</p>
-                    </div>
-                </div>
-            </div>
+
+            </section> <!-- /container -->  
 
         </main> <!-- /main -->
 

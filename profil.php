@@ -1,5 +1,11 @@
 
-
+<?php session_start(); ?>
+<?php 
+require_once 'assets/lib/DbConnect.php'; 
+require_once 'assets/lib/User.php';
+$db = new DbConnect();
+$user = new User($db);
+?>
 <!-- path: profil.php -->
 <!DOCTYPE html>
 <html lang="en">
@@ -34,9 +40,7 @@
     
 </head>
 
-<body id="bodyProfil">
-
-    <?php include 'includes/header.php';?>
+<body id="profil">
 
     <?php
     if (!$user->isConnected()) { // si la session n'est pas ouverte (protection de barre d'adresse)
@@ -51,6 +55,11 @@
     
     <div class="wrapper">
 
+        <section class="d-flex justify-content-end mx-5 my-5">
+            <button id="deconnexion" class="btn btn-danger mx-2"><a href="index.php?deconnexion=true">DECONNEXION</a></button>
+            <button type="button" class="btn btn-success btn-lg"><a class="text-center" href="game.php">JOUER</a></button>
+        </section>
+
         <main>
             <div class="container">
 
@@ -58,10 +67,10 @@
                 <br>
                 <div class="row align-content-center">
 
-                    <form action="" class="col md-6 m-3 p-3 bg-white bg-opacity-75" id="profilForm" method="post">
+                    <form action="" class="col md-6 m-3 p-3 bg-dark rounded" id="profilForm" method="post">
 
                         <div class="d-flex justify-content-between">
-                            <h3 class="">Modifier mon login</h3><i class="fa fa-user-lock fa-2x"></i>
+                            <h3 class="">Modifier mon login</h3>
                         </div>
                         <br>
                         <div class="d-flex justify-content-between">
@@ -78,14 +87,16 @@
                         <input type="submit" id="loginProfilSubmit" name='submit' class="btn btn-secondary" value="Valider" >
                         <p></p>
                         <!-- Supprimer compte -->
-                        <input type="submit" id="deleteBtn" name="delete"  class="btn btn-warning" value="Supprimer mon compte" />
+                        <input type="submit" id="deleteBtn" name="delete"  class="btn btn-danger" value="Supprimer mon compte" />
                         <p></p>
                     </form>
 
-                    <form action="" class="col md-6 m-3 p-3 bg-white bg-opacity-75" id="passwordForm" method="post">
+                    <!----------------------------------------------------------------------------------->
+
+                    <form action="" class="col md-6 m-3 p-3 bg-dark rounded" id="passwordForm" method="post">
 
                         <div class="d-flex justify-content-between">
-                            <h3 class="form_title center">Changer de mot de passe</h3><i class="fa fa-lock fa-2x"></i>
+                            <h3 class="form_title center">Changer de mot de passe</h3>
                         </div>
 
                         <div class="d-flex justify-content-between">

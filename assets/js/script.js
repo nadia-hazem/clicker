@@ -243,7 +243,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     errorLog.style.color = "#00ff00";
                     errorLog.innerHTML = "Connexion réussie !";
                     setTimeout(() => {
-                        window.location.href = "profil.php";
+                        window.location.href = "game.php";
                     }, 1000);
                 } else {
                     passwordLog.style.borderColor = "#ff0000";
