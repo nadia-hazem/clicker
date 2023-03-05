@@ -48,17 +48,17 @@
 
         <main>
 
-            <div class="container">
+            <div class="container d-flex justify-content-center align-items-center align-content-center">
                 
                 <div id="connexionDiv" class="animate__animated animate__zoomIn">
 
-                    <button id="inscription" class="btn btn-warning"><a class="text-center" id="registerBtn" href="/clicker/forms.php?choice=register">INSCRIPTION</a></button>
+                    <button id="inscription" class="btn btn-dark btn-lg"><a class="text-center text-warning" id="registerBtn" href="/clicker/forms.php?choice=register">INSCRIPTION</a></button>
 
                     <!-- login -->
                     <form id="loginForm" class="bg-dark rounded p-5 m-5" action="assets/php/verification.php" method="post"> <!-- redirection vers la page de vérification -->
                     
-                    <h3 class="playfair">Connectez-vous pour accéder à votre profil</h3>
-                    <h1 class="text-center">Connexion</h1>
+                    <h3 class="playfair">Connectez-vous pour accéder au jeu</h3>
+                    <h1 class="text-center text-warning">Connexion</h1>
 
                         <label for="login">Login</label>
                         <input type="text" class="login form-control" placeholder="Entrer le nom d'utilisateur" name="login" required>
@@ -66,10 +66,10 @@
                         <label for="password">Mot de passe</label>
                         <input type="password" class="password form-control" placeholder="Entrer le mot de passe" name="password" required>
                         <p></p>
-                        <input type="submit" id="loginSubmit" class="btn btn-secondary" value="Connexion">
+                        <input type="submit" id="loginSubmit" class="btn btn-warning" value="Connexion">
                         <p class="error"></p>
 
-                        Vous n'avez pas de compte ? &nbsp;<a href="#" id="switchReg">Inscription</a>
+                        Vous n'avez pas de compte ? &nbsp;<a href="#" id="switchReg" class="text-success">Inscription</a>
                     </form> <!-- fin du formulaire -->
                     
                 </div>
@@ -77,13 +77,13 @@
                 
                 <div id="inscriptionDiv" class="animate__animated animate__zoomIn">
                     
-                    <button id="inscription" class="btn btn-warning"><a class="text-center" id="loginBtn" href="/clicker/forms.php?choice=login">CONNEXION</a></button>
+                    <button id="inscription" class="btn btn-dark btn-lg"><a class="text-center text-warning" id="loginBtn" href="/clicker/forms.php?choice=login">CONNEXION</a></button>
                     
                     <!-- register -->
                     <form id="registerForm"  class="bg-dark rounded p-5 m-5" action="assets/php/verification.php">
                         
-                        <h3 class="playfair">Inscrivez-vous pour laisser un commentaire</h3>
-                        <h1 class="text-center">Inscription</h1>
+                        <h3 class="">Inscrivez-vous pour jouer</h3>
+                        <h1 class="text-center text-warning">Inscription</h1>
 
                         <label for="login">login</label>
                         <input type="text" name="login" class="login form-control" required>
@@ -94,10 +94,10 @@
                         <label for="password2">Confirmer le mot de passe</label>
                         <input type="password" name="password2" id="password2" class="form-control" required>
                         <p></p>
-                        <input type="submit" id="registerSubmit" class="btn btn-secondary" value="Inscription">
+                        <input type="submit" id="registerSubmit" class="btn btn-warning" value="Inscription">
                         <p class="error"></p>
 
-                        Déjà inscrit ? &nbsp;<a href="#" id="switchLog">Connexion</a>
+                        Déjà inscrit ? &nbsp;<a href="#" id="switchLog" class="text-success">Connexion</a>
 
                     </form> <!-- fin du formulaire -->
 

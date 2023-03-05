@@ -56,14 +56,14 @@ $user = new User($db);
     <div class="wrapper">
 
         <section class="d-flex justify-content-end mx-5 my-5">
-            <button id="deconnexion" class="btn btn-danger mx-2"><a href="index.php?deconnexion=true">DECONNEXION</a></button>
-            <button type="button" class="btn btn-success btn-lg"><a class="text-center" href="game.php">JOUER</a></button>
+            <button id="deconnexion" class="btn btn-dark mx-2"><a class="text-warning" href="index.php?deconnexion=true">DECONNEXION</a></button>
+            <button type="button" class="btn btn-dark btn-lg"><a class="text-warning" href="game.php">JOUER</a></button>
         </section>
 
         <main>
             <div class="container">
 
-                <h2 class="playfair animate__animated animate__flipInX">Mon Profil</h2>
+                <h2 class="text-dark animate__animated animate__flipInX">Mon Profil</h2>
                 <br>
                 <div class="row align-content-center">
 
@@ -84,7 +84,7 @@ $user = new User($db);
                         </div>
                         <p></p>
 
-                        <input type="submit" id="loginProfilSubmit" name='submit' class="btn btn-secondary" value="Valider" >
+                        <input type="submit" id="loginProfilSubmit" name='submit' class="btn btn-warning" value="Valider" >
                         <p></p>
                         <!-- Supprimer compte -->
                         <input type="submit" id="deleteBtn" name="delete"  class="btn btn-danger" value="Supprimer mon compte" />
@@ -116,13 +116,13 @@ $user = new User($db);
                         </div>
                         <p></p>
 
-                        <input type="submit" id='passwordSubmit' class="btn btn-secondary" value="Valider" >
+                        <input type="submit" id='passwordSubmit' class="btn btn-warning" value="Valider" >
                         <p></p>
                     </form>
 
                 </div> <!-- end row wrap -->
 
-            </div> <!-- end content -->
+            </div> <!-- end container -->
 
         </main> <!--end main-->
 

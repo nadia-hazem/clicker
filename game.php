@@ -1,4 +1,15 @@
 <?php session_start(); ?>
+<?php require_once 'assets/lib/DbConnect.php'; ?>
+<?php require_once 'assets/lib/User.php'; ?>
+
+<?php
+$db = new DbConnect(); 
+$user = new User($db); 
+
+if (!$user->isConnected()) {
+        header('Location: index.php');
+    }
+?>
 
 <!--  Path: game.php -->
 <!DOCTYPE html>
@@ -29,6 +40,9 @@
     <!-- Jquery -->
     <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 
+    <script>
+        let userId = <?php echo $user->getId(); ?>;
+    </script>
     <!-- JS -->
     <script src="/clicker/assets/js/game.js"></script>
     
@@ -38,44 +52,50 @@
 
     <div class="wrapper">
 
-        <main>
+        <main>     
+            <h2 class="text-center mt-5 " ><?php $login = $user->getLogin(); ?></h2>
 
-            
+            <section class="container d-flex wrap text-center justify-content-center align-items-center align-content-center">
 
-            <section class="container d-flex text-center justify-content-center align-items-center">
+
+                <div id="scorePopup" style="display: none;"></div>
                 
-                <div class="col-6">
-                    <div class="d-flex justify-content-start mx-5 my-0">
-                        <button id="deconnexion" class="btn btn-danger btn-lg mx-2"><a href="index.php?deconnexion=true">DECONNEXION</a></button>
-                        <button id="profil" class="btn btn-warning btn-lg mx-2"><a href="profil.php">PROFIL</a></button>
+                <div class="col-7 col-md-6 col-sm-6 border border-5 border-warning align-items-center bg-dark p-5">
+
+                    <div class="d-flex justify-content-center mx-5 my-0">
+                        <button id="deconnexion" class="btn btn-warning btn-lg btn-sm btn-xs mx-2"><a class="text-dark" href="index.php?deconnexion=true">DECONNEXION</a></button>
+                        <button id="profil" class="btn btn-warning btn-lg btn-sm btn-xs mx-2"><a class="text-dark" href="profil.php">PROFIL</a></button>
                     </div>    
 
-                    <div class="money rounded m-5 bg-dark justify-content-center align-items-center">
-
-                        <h1 id="moneyDisplay" class="display text-white my-5">$0</h1>
-                        <input id="moneyButton" type="button" value="Click" class="moneyButton btn btn-danger btn-lg my-3">
+                    <div class="money m-5 justify-content-center align-items-center">
+                        <h1 id="moneyDisplay" class="display d-flex rounded text-white text-center bg-dark border-5 border-warning py-5 m-5 justify-content-center">$0</h1>
+                        <input id="moneyButton" type="button" value="" class="moneyButton rounded-circle shadow">
                         <p id="moneyPerSec" class="mps text-white"></p>
                     </div> 
                 </div>
 
-                <div class="upgrades col-4 m-auto">
-                    <h2 class="text-dark">Améliorations</h2>
+                <div class="upgrades col-2 col-md-4 col-sm-5 m-auto">
+                    <div class="d-flex justify-content-around my-2 ">                  
+                        <h1 class="text-dark">BONUS</h1>
+                        <button id="showScoreBtn" class="btn btn-warning btn-md btn-sm my-2">Score</button>
+                    </div>
                     
-                    <div class="click rounded bg-dark m-2 p-2">
-                        <input id="upgrdClick" type="button" value="Upgrade Click" class="clickUpgrade btn btn-warning my-2">
+                    <div class="click rounded bg-dark">
+                        <input id="upgrdClick" type="button" value="" class="clickUpgrade btn btn-sm btn-xs">
                         <p class="stats-click" id="clickUpgradeStats">Coût : $10 <br> Niveau 1</p>
                     </div>
 
                     <div class="auto rounded bg-dark m-2 p-2">
-                        <input id="upgrdAuto" type="button" value="Auto Click" class="autoUpgrade btn btn-warning my-2">
+                        <input id="upgrdAuto" type="button" value="" class="autoUpgrade btn btn-sm btn-xs">
                         <p class="stats-auto" id="autoUpgradeStats">Coût : $25 <br> Niveau 0</p>
                     </div>
 
                     <div class="autoAmount rounded bg-dark m-2 p-2">
-                        <input id="upgrdAutoAmt" type="button" value="Multiplieur Click" class="autoUpgradeAmount btn btn-warning my-2">
+                        <input id="upgrdAutoAmt" type="button" value="" class="autoUpgradeAmount btn btn-sm btn-xs">
                         <p class="stats-auto-amount" id="autoAmountUpgradeStats">Coût : $50 <br> Multiplieur x1</p>
                 </div>
 
+                
 
             </section> <!-- /container -->  
 

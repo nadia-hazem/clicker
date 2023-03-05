@@ -11,17 +11,14 @@
 
 a {
     text-decoration: none;
-    color: #fff;
+}
+h1 {
+    font-size: 50px;
+    font-family:Impact, 'Arial Narrow Bold', sans-serif;
 }
 
 form {
     margin: 0 auto;
-    width: 50%;
-}
-@media screen and (max-width: 768px) {
-    form {
-        width: 100%;
-    }
 }
 
 .hover:hover {
@@ -47,19 +44,16 @@ body#jeu {
 body#profil {
     background-color: #000;
     color: white;
-    background: url(../img/c.jpg) no-repeat center center fixed;
+    background: url(../img/b.jpg) no-repeat center center fixed;
     background-size: cover;
 }
 body#forms {
     background-color: #000;
     color: white;
-    background: url(../img/c.jpg) no-repeat center center fixed;
+    background: url(../img/b.jpg) no-repeat center center fixed;
     background-size: cover;
 }
 
-main {
-    margin-top: .5rem;
-}
 .container {
     height: 100vh;
 }
@@ -76,63 +70,52 @@ main {
     color: #fff;
 }
 
-.money {
-    /* position: absolute;
-    left: 50%;
-    margin-left: -50px;
-    min-height: 100px; */
+.moneyButton {
+    background-image: url(../img/coin.png)!important;
+    background: transparent;
+    background-size: cover;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    width: 100px;
+    height: 100px;
 }
-.moneyButton{
-    /* width: 200px */
+.moneyButton:hover {
+    background-image: url(../img/coin-hover.png)!important;
 }
 
 .mps{
     text-align: center;
 }
+/**************UPGRADES**************/
 
-@media (max-width: 767px) {
-    
-    burgerButton {
-    display: block; 
-    width: 60px;
-    height: 60px;
-    color: black;
-    font-weight: 600;
+#upgrdClick, #upgrdAuto, #upgrdAutoAmt {
+    background-repeat: no-repeat;
+    background-position: center; 
+    border: none;
+    width: 72px;
+    height: 72px;
     cursor: pointer;
-    margin-bottom:5px;
-    }
-    burgerButton:hover{
-    content: '\2261';
-    }
-    burgerButton:after{
-    position: absolute;
-    left: 20px;
-    top: 3px;
-    font-size: 40px;
-    }
-    nav.open burgerButton:after {
-    content: '\00d7';
-    }
+}
 
-    nav.close burgerButton:after {
-    content: '\2261';
-    }
-    nav.close ul { 
-    display: none; 
-    }
-    nav.open ul {
-        display: flex;
-        flex-direction: column;
-    }
-    nav.open ul li {
-        display: block;
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-        border-bottom: 1px solid #ccc;
-    }
-    nav.open ul li:hover {
-        background-color: #cccccc;
+#upgrdClick {background-image: url('../img/1.png');}
+#upgrdClick:hover {background-image: url('../img/10.png');}
+
+#upgrdAuto {background-image: url('../img/2.png');}
+#upgrdAuto:hover {background-image: url('../img/20.png');}
+
+#upgrdAutoAmt {background-image: url('../img/3.png');}
+#upgrdAutoAmt:hover {background-image: url('../img/30.png');}
+
+@media (max-width: 599) {
+    
+    #upgrdClick, #upgrdAuto, #upgrdAutoAmt {
+        background-repeat: no-repeat;
+        background-position: center center;
+        border: none;
+        width: 32px;
+        height: 32px;
+        cursor: pointer;
     }
 
 }

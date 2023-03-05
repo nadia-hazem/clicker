@@ -48,42 +48,40 @@ $user = new User($db);
 
         <main>
 
-            <div class="container flex ">
+            <div class="container d-flex justify-content-center align-items-center ">
 
-                    <!-- tester si l'utilisateur est connecté -->
-                    <?php
-                    if (isset($_GET['deconnexion'])){
-                        if($_GET['deconnexion']==true){
-                            $user->disconnect();
-                            header('Location: index.php');
-                        }
+                <!-- tester si l'utilisateur est connecté -->
+                <?php
+                if (isset($_GET['deconnexion'])){
+                    if($_GET['deconnexion']==true){
+                        $user->disconnect();
+                        header('Location: index.php');
                     }
-                    else if ($user->isConnected()) {
-                    ?>
-                        <!-- afficher le login de l'utilisateur -->
-                        <mark><?php $login = $user->getLogin(); ?></mark></li>
+                }
+                else if ($user->isConnected()) {
+                ?>
+                    <!-- afficher le login de l'utilisateur -->
+                    <mark><?php $login = $user->getLogin(); ?></mark></li>
 
-                        <div class="d-flex justify-content-center align-content-center align-items-center">
-                            <div class="flex-column">
-                                <button type="button" class="btn btn-success btn-lg"><a class="text-center" href="game.php">JOUER</a></button>
-                                <button type="button" class="btn btn-success btn-lg"><a class="text-center" href="index.php?deconnexion=true">DECONNEXION</a></button>
-                            </div>
+                    <div class="text-center">
+                        <div class="flex-column">
+                            <button type="button" class="btn btn-dark btn-lg m-2"><a class="text-warning" href="game.php">JOUER</a></button>
+                            <button type="button" class="btn btn-dark btn-lg m-2"><a class="text-warning" href="index.php?deconnexion=true">DECONNEXION</a></button>
                         </div>
-                    <?php
-                    } else { 
-                        ?>
-                        <!-- afficher les liens menus correspondants à l'absence de session -->
-
-                        <div class="d-flex justify-content-center align-items-center animate__animated animate__bounce">
-                            <div class="flex-column">
-                                <button type="button" id="connexion" class="btn btn-danger "><a id="loginBtn" href="/clicker/forms.php?choice=login">CONNEXION</a></button>
-                                <button type="button" id="inscription" class="btn btn-danger "><a id="registerBtn" href="/clicker/forms.php?choice=register">INSCRIPTION</a></button>
-                            </div>
-                        </div>
-
-                    <?php
-                    }
+                    </div>
+                <?php
+                } else { 
                     ?>
+                    <!-- afficher les liens menus correspondants à l'absence de session -->
+
+                    <div class="text-center">
+                        <button type="button" id="connexion" class="btn btn-dark btn-lg m-2"><a id="loginBtn" class="text-warning" href="/clicker/forms.php?choice=login">CONNEXION</a></button>
+                        <button type="button" id="inscription" class="btn btn-dark btn-lg m-2"><a id="registerBtn" class="text-warning" href="/clicker/forms.php?choice=register">INSCRIPTION</a></button>
+                    </div>
+
+                <?php
+                }
+                ?>
 
             </div> <!-- /container -->
 
