@@ -38,7 +38,6 @@
 
     <!-- JS -->
     <script src="/clicker/assets/js/script.js"></script>
-    <script src="/clicker/assets/js/menu_user.js"></script>
     
 </head>
 

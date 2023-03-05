@@ -74,9 +74,6 @@ document.addEventListener("DOMContentLoaded", function () {
             .then((data) => {
                 data = data.trim();
 
-                console.log(dataLogin);
-                console.log(data);
-
                 if(data === "indispo") {
                     loginReg.style.borderColor = "#ff0000";
                     loginReg.nextElementSibling.style.color = "#ff0000";

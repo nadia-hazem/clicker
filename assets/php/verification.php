@@ -2,8 +2,8 @@
 session_start();
 // Path: verification.php
 
-require_once '../lib/DbConnect.php';
-require_once '../lib/User.php'; 
+require_once 'assets/lib/DbConnect.php';
+require_once 'assets/lib/User.php'; 
 $db = new DbConnect();
 $user = new User($db);
 
