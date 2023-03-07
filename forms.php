@@ -51,8 +51,6 @@
                 
                 <div id="connexionDiv" class="animate__animated animate__zoomIn">
 
-                    <button id="inscription" class="btn btn-dark btn-lg"><a class="text-center text-warning" id="registerBtn" href="/clicker/forms.php?choice=register">INSCRIPTION</a></button>
-
                     <!-- login -->
                     <form id="loginForm" class="bg-dark rounded p-5 m-5" action="assets/php/verification.php" method="post"> <!-- redirection vers la page de vérification -->
                     
@@ -75,9 +73,7 @@
 
                 
                 <div id="inscriptionDiv" class="animate__animated animate__zoomIn">
-                    
-                    <button id="inscription" class="btn btn-dark btn-lg"><a class="text-center text-warning" id="loginBtn" href="/clicker/forms.php?choice=login">CONNEXION</a></button>
-                    
+
                     <!-- register -->
                     <form id="registerForm"  class="bg-dark rounded p-5 m-5" action="assets/php/verification.php">
                         

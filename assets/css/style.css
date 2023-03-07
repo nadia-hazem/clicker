@@ -2,7 +2,7 @@
 .wrapper {
     min-height: 100vh;
     background:transparent;
-    margin-bottom: -50px;/* Equal to height of footer */
+    margin-bottom: -50px;
 } /* grace au push*/
 .footer,
 .push {
@@ -10,8 +10,19 @@
 }
 
 a {
-    text-decoration: none;
+    color: black;
+    text-decoration: none!important;
 }
+a:hover, .fa:hover {
+    color: #fff;
+    transform: scale(1.5);
+    transition: ease-in-out 0.3s;
+}
+
+li {
+    list-style: none;
+}
+
 h1 {
     font-size: 50px;
     font-family:Impact, 'Arial Narrow Bold', sans-serif;
@@ -28,26 +39,17 @@ form {
 
 body {
     font-family: 'Roboto', sans-serif;
+    height: 100%;
 }
+
 body#index {
     background-color: #000;
     color: white;
     background: url(../img/a.jpg) no-repeat center center fixed;
     background-size: cover;
 }
+
 body#jeu {
-    background-color: #000;
-    color: white;
-    background: url(../img/b.jpg) no-repeat center center fixed;
-    background-size: cover;
-}
-body#profil {
-    background-color: #000;
-    color: white;
-    background: url(../img/b.jpg) no-repeat center center fixed;
-    background-size: cover;
-}
-body#forms {
     background-color: #000;
     color: white;
     background: url(../img/b.jpg) no-repeat center center fixed;
@@ -55,38 +57,46 @@ body#forms {
 }
 
 .container {
-    height: 100vh;
-}
-.bg-creme {
-    background-color: #EACC86;
-}
-
-.text-creme {
-    color: #EACC86;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    width: 100vw;
 }
 
-.btn-green {
-    background-color: #92AA0C;
-    color: #fff;
+header {
+    padding: .5rem;
+}
+
+
+.degr {
+    background: #f6e6b4; /* Old browsers */
+    background: -moz-radial-gradient(center, ellipse cover,  #f6e6b4 0%, #ed9017 100%); /* FF3.6-15 */
+    background: -webkit-radial-gradient(center, ellipse cover,  #f6e6b4 0%,#ed9017 100%); /* Chrome10-25,Safari5.1-6 */
+    background: radial-gradient(ellipse at center,  #f6e6b4 0%,#ed9017 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6e6b4', endColorstr='#ed9017',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 .moneyButton {
-    background-image: url(../img/coin.png)!important;
+    background-image: url(../img/clicker.png)!important;
+    background-repeat: no-repeat;
     background: transparent;
-    background-size: cover;
+    background-size: contain;
     color: #fff;
     border: none;
     padding: 10px 20px;
-    width: 100px;
-    height: 100px;
+    width: 140px;
+    height: 129px;
 }
+
 .moneyButton:hover {
-    background-image: url(../img/coin-hover.png)!important;
+    transform: scale(0.8);
 }
 
 .mps{
     text-align: center;
 }
+
 /**************UPGRADES**************/
 
 #upgrdClick, #upgrdAuto, #upgrdAutoAmt {
@@ -107,6 +117,8 @@ body#forms {
 #upgrdAutoAmt {background-image: url('../img/3.png');}
 #upgrdAutoAmt:hover {background-image: url('../img/30.png');}
 
+/**************MEDIAQUERY**************/
+
 @media (max-width: 599) {
     
     #upgrdClick, #upgrdAuto, #upgrdAutoAmt {
@@ -117,6 +129,4 @@ body#forms {
         height: 32px;
         cursor: pointer;
     }
-
 }
-

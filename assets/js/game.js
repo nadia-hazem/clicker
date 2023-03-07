@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
     clickUpgrade,
     autoStats,
     autoUpgrade,
-    moneyPerSecond,
+    /* moneyPerSecond, */
     autoMultUpgrade,
     autoMultStats;
     // Récupérer le score
@@ -22,8 +22,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // maj locale du gain par seconde
     let mps = setInterval(function() {
         money = money + (autoLevel * multiplierLevel)
-        moneyDisp.innerHTML = "$" + money;
+        moneyDisp.innerHTML = "$" + money.toLocaleString('fr-FR');
         localStorage.setItem("money", money);
+        localStorage.setItem("moneyPerSecond", moneyPerSecond);
         }, 1000);
     
     moneyBtn = document.getElementById("moneyButton"),
@@ -56,9 +57,6 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("clickLevel", clickLevel);
         localStorage.setItem("clickUpCost", clickUpCost);
         localStorage.setItem("clickStats", clickStats);
-
-        fetchScoreData();
-        user.save(money, clickLevel, clickUpCost, autoLevel, autoUpCost, multiplierLevel, multUpCost);
         }
     }
     
@@ -75,9 +73,6 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("autoLevel", autoLevel);
         localStorage.setItem("autoUpCost", autoUpCost);
         localStorage.setItem("autoStats", autoStats);
-
-        fetchScoreData();
-        user.save(money, clickLevel, clickUpCost, autoLevel, autoUpCost, multiplierLevel, multUpCost);
     }
 
     autoMultUpgrade.onclick = function() {
@@ -93,9 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("multiplierLevel", multiplierLevel);
         localStorage.setItem("multUpCost", multUpCost);
         localStorage.setItem("autoMultStats", autoMultStats);
-        
-        fetchScoreData();
-        user.save(money, clickLevel, clickUpCost, autoLevel, autoUpCost, multiplierLevel, multUpCost);
     }
 
     // Fonction pour récupérer les données du localStorage
@@ -128,61 +120,12 @@ document.addEventListener("DOMContentLoaded", function () {
             multiplierLevel = parseInt(localStorage.getItem("multiplierLevel"));
             autoMultStats.innerHTML = "Coût : $" + multUpCost + "<br> Multiplieur x" + multiplierLevel;
         }
-    }
-    // Récupérer les scores du serveur
-    function fetchScoreData() {
-        fetch('assets/php/get_score.php')
-            .then(response => response.json())
-            .then(scoreData => {
-                // Update le score
-                const scoreDisplay = document.getElementById('score-display');
-                scoreDisplay.innerText = `Score: ${scoreData.score}`;
-        
-                // Affiche le popup
-                const scorePopup = document.getElementById('score-popup');
-                if (scorePopup.style.display !== 'block') {
-                scorePopup.style.display = 'block';
-                }
-            })
-            .catch(error => {
-                console.error(error);
-            });
-    }
-    
-    // Sauvegarder le score dans la bdd
-    function saveScore() {
-        const formData = new FormData();
-        formData.append('money', money);
-        formData.append('clickLevel', clickLevel);
-        formData.append('clickUpCost', clickUpCost);
-        formData.append('autoLevel', autoLevel);
-        formData.append('autoUpCost', autoUpCost);
-        formData.append('multiplierLevel', multiplierLevel);
-        formData.append('multUpCost', multUpCost);
+    }    
 
-        fetch('assets/php/save_score.php', {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => {
-            console.error(error);
-        });
-    }
     // Récupérer le score du localStorage
     getLocalStorage();
-    saveScore();
-
-    document.getElementById('showScoreBtn').addEventListener('click', function() {
-        fetchScoreData()
-        // Récupérer le score et maj le popup
-        getScore(); 
-        document.getElementById('scorePopup').textContent = "Votre dernier score : " + scoreData;
-        // Afficher le popup
-        document.getElementById('scorePopup').style.display = "block";
-    });
+    localStorage.getItem("moneyPerSec", moneyPerSecond);
+    moneyPerSecond.innerHTML = "Tu gagnes $" + (autoLevel * multiplierLevel) + " par seconde";
+    window.addEventListener('load', moneyPerSecond);
 
 });
