@@ -18,5 +18,5 @@ In the event of a cut, the user keeps his progress making the regular storage of
 ### Diagram
 
 <p align="center">
-  ![Diagram](https://github.com/nadia-hazem/clicker/blob/e0aa3d86a7b3328dcdf18edc65e37fd2f2997712/assets/img/diagram.png#center)
+  ![Diagram](https://github.com/nadia-hazem/clicker/blob/e0aa3d86a7b3328dcdf18edc65e37fd2f2997712/assets/img/diagram.png)
 </p>
