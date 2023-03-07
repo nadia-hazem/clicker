@@ -15,8 +15,22 @@ The price scale makes the accession of points almost exponential.
 
 In the event of a cut, the user keeps his progress making the regular storage of the state of the game in the localStorage.
 
+<p align="center">
+  <img src="https://github.com/nadia-hazem/clicker/blob/0525718db420118b4e109223e2a4c423605ac248/assets/img/readme1.png">
+  <img src="https://github.com/nadia-hazem/clicker/blob/0525718db420118b4e109223e2a4c423605ac248/assets/img/readme2.png">
+  </p>
+
 ### Diagram
 
 <p align="center">
 <img src="https://github.com/nadia-hazem/clicker/blob/e0aa3d86a7b3328dcdf18edc65e37fd2f2997712/assets/img/diagram.png">
 </p>
+
+### Improvements
+
+* Authentification process -(API Fetch())
+* profile private page
+* scores script
+* score page
+
+____
