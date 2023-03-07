@@ -3,7 +3,7 @@
     <nav id="nav" class="d-flex text-center justify-content-between align-items-center p5">
 
         <!-- menu-->
-        <div class="col-md-4 lead text-black">
+        <div class="col-md-4 lead">
             <a href="index.php"><strong><i class="fas fa-coins"></i> Trea$ure</strong></a>
         </div>
 

@@ -9,16 +9,27 @@
     height: 50px;
 }
 
-a {
-    color: black;
+a, .fab, .fas {
+    color: #863f0d!important;
     text-decoration: none!important;
 }
-a:hover, .fa:hover {
-    color: #fff;
+a:hover {
+    color: #000;
     transform: scale(1.5);
     transition: ease-in-out 0.3s;
 }
-
+.lead:hover {
+    transform: scale(1.2);
+}
+.social {
+    color: #863f0d!important;
+    text-decoration: none!important;
+}
+.social:hover {
+    color: #000;
+    transform: scale(1.5);
+    transition: ease-in-out 0.3s;
+}
 li {
     list-style: none;
 }
@@ -68,6 +79,9 @@ header {
     padding: .5rem;
 }
 
+.text-ocre {
+
+}
 
 .degr {
     background: #f6e6b4; /* Old browsers */
