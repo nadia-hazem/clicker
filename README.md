@@ -15,7 +15,6 @@ The price scale makes the accession of points almost exponential.
 
 In the event of a cut, the user keeps his progress making the regular storage of the state of the game in the localStorage.
 
-### The pages
+### Pattern
 
-- index.php
-- game.php
+pattern.drawio
