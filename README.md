@@ -14,3 +14,8 @@ The elements allow you to produce more points, manually (click) or automatically
 The price scale makes the accession of points almost exponential. 
 
 In the event of a cut, the user keeps his progress making the regular storage of the state of the game in the localStorage.
+
+### The pages
+
+- index.php
+- game.php
