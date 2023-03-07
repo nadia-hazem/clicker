@@ -3,7 +3,7 @@
 
 ### Description
 
-Incremental click game (idle game). The goal is simple and unfolds
+Simple incremental click game (idle game) responsive. The goal is simple and unfolds
 in several steps:
 -  When a user clicks, he earns points.
 - The shop allows you to spend points to buy
