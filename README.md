@@ -1,4 +1,4 @@
-# clicker
+# clicker js
 ## Idle game
 
 ### Description
@@ -15,6 +15,8 @@ The price scale makes the accession of points almost exponential.
 
 In the event of a cut, the user keeps his progress making the regular storage of the state of the game in the localStorage.
 
-### Pattern
+### Diagram
 
-pattern.drawio
+<p align="center">
+<img src="https://github.com/nadia-hazem/clicker/blob/e0aa3d86a7b3328dcdf18edc65e37fd2f2997712/assets/img/diagram.png">
+</p>
